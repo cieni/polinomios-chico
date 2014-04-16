@@ -7,3 +7,6 @@ Z:\TopED\Polinomios\Polinomios\bin\Debug\Polinomios.exe
 Z:\TopED\Polinomios\Polinomios\bin\Debug\Polinomios.pdb
 Z:\TopED\Polinomios\Polinomios\obj\Debug\Polinomios.exe
 Z:\TopED\Polinomios\Polinomios\obj\Debug\Polinomios.pdb
+C:\Users\u12181\Documents\GitHub\polinomios-chico\Polinomios\Polinomios\bin\Debug\Polinomios.exe.config
+C:\Users\u12181\Documents\GitHub\polinomios-chico\Polinomios\Polinomios\obj\Debug\Polinomios.exe
+C:\Users\u12181\Documents\GitHub\polinomios-chico\Polinomios\Polinomios\obj\Debug\Polinomios.pdb

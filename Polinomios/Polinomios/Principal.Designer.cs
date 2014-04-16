@@ -45,7 +45,6 @@
             this.txtResultado = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.button10 = new System.Windows.Forms.Button();
             this.ofdAbrir = new System.Windows.Forms.OpenFileDialog();
             this.button11 = new System.Windows.Forms.Button();
             this.expA = new System.Windows.Forms.TextBox();
@@ -225,15 +224,6 @@
             this.label7.TabIndex = 20;
             this.label7.Text = "B:";
             // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(474, 202);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 23);
-            this.button10.TabIndex = 21;
-            this.button10.Text = "Calcular";
-            this.button10.UseVisualStyleBackColor = true;
-            // 
             // button11
             // 
             this.button11.Location = new System.Drawing.Point(499, 34);
@@ -303,7 +293,6 @@
             this.Controls.Add(this.coefB);
             this.Controls.Add(this.expA);
             this.Controls.Add(this.button11);
-            this.Controls.Add(this.button10);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtResultado);
@@ -348,7 +337,6 @@
         private System.Windows.Forms.TextBox txtResultado;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button10;
         private System.Windows.Forms.OpenFileDialog ofdAbrir;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.TextBox expA;
