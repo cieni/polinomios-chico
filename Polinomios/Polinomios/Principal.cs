@@ -40,6 +40,7 @@ namespace Polinomio
                 {
                     uP = ini;
                 }
+
                 if (!ehExpoente)
                     g.DrawString(polS[ini] + "", new Font("Arial", 18), Brushes.Black, 0F, 0F + 4 * ini);
                 else
@@ -47,6 +48,8 @@ namespace Polinomio
                     SizeF size = g.MeasureString(polS.Substring(uP, ini), new Font("Arial", 18));
                     g.DrawString(polS[ini] + "", new Font("Arial", 8), Brushes.Black, size.Width - 3F, 0F);
                 }
+
+                ini++;
             }
         }
 
