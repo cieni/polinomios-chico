@@ -12,7 +12,7 @@ using System.Windows.Forms;
 namespace Polinomio
 {
     public partial class Principal : Form
-    {
+    { 
         private Polinomio polA, polB;
 
         public Principal()
@@ -21,6 +21,33 @@ namespace Polinomio
 
             polA = new PolinomioComoListaSimples();
             polB = new PolinomioComoListaSimples();
+        }
+
+        private void desenhaPolinomio(Graphics g, PolinomioComoListaSimples pol)
+        {
+
+            bool ehExpoente = false;
+            String polS = pol.ToString();
+            polS.Trim();
+            int ini = 0;
+            int uP = 0;
+            //Desenhar termo a termo da String
+            while (ini < polS.Length)
+            {
+                // Leu '^' é tudo expoente até um '+' ou '-'
+                ehExpoente = polS[ini] == '^';
+                if (polS[ini] == '+' || polS[ini] == '-')
+                {
+                    uP = ini;
+                }
+                if (!ehExpoente)
+                    g.DrawString(polS[ini] + "", new Font("Arial", 18), Brushes.Black, 0F, 0F + 4 * ini);
+                else
+                {
+                    SizeF size = g.MeasureString(polS.Substring(uP, ini), new Font("Arial", 18));
+                    g.DrawString(polS[ini] + "", new Font("Arial", 8), Brushes.Black, size.Width - 3F, 0F);
+                }
+            }
         }
 
         private Polinomio lerTermoDeArquivo()
