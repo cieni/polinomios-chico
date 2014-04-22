@@ -35,17 +35,18 @@ namespace Polinomio
             while (ini < polS.Length)
             {
                 // Leu '^' é tudo expoente até um '+' ou '-'
-                ehExpoente = polS[ini] == '^';
+                if (!ehExpoente)
+                  ehExpoente = polS[ini] == '^';
                 if (polS[ini] == '+' || polS[ini] == '-')
                 {
                     uP = ini;
                 }
 
                 if (!ehExpoente)
-                    g.DrawString(polS[ini] + "", new Font("Arial", 18), Brushes.Black, 0F, 0F + 4 * ini);
+                    g.DrawString(polS[ini] + "", new Font("Arial", 18), Brushes.Black, 12 * ini , 0F);
                 else
                 {
-                    SizeF size = g.MeasureString(polS.Substring(uP, ini), new Font("Arial", 18));
+                    SizeF size = g.MeasureString(polS.Substring(uP, ini).Replace("^",""), new Font("Arial", 18));
                     g.DrawString(polS[ini] + "", new Font("Arial", 8), Brushes.Black, size.Width - 3F, 0F);
                 }
 
@@ -116,7 +117,7 @@ namespace Polinomio
             Termo termo = new Termo(Convert.ToDouble(coefA.Text), Convert.ToInt32(expA.Text));
             polA.Incluir(termo);
             //Atualiza visualmente (tela) o polinômio
-            label6.Text = "A: " + polA;
+            pbPolA.Refresh();
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -125,7 +126,7 @@ namespace Polinomio
             Termo termo = new Termo(Convert.ToDouble(coefB.Text), Convert.ToInt32(expB.Text));
             polB.Incluir(termo);
             //Atualiza visualmente (tela) o polinômio
-            label7.Text = "B: " + polB;
+            pbPolA.Refresh();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -143,6 +144,11 @@ namespace Polinomio
         private void button3_Click(object sender, EventArgs e)
         {
             txtResultado.Text = polA.SomadoA(polB.MultiplicarPorConstante(-1)) + "";
+        }
+
+        private void pbPolA_Paint(object sender, PaintEventArgs e)
+        {
+            desenhaPolinomio(e.Graphics, polA as PolinomioComoListaSimples);
         }
 
     }

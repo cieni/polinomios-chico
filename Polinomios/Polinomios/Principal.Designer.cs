@@ -52,11 +52,13 @@
             this.expB = new System.Windows.Forms.TextBox();
             this.button7 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
+            this.pbPolA = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPolA)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(393, 202);
+            this.button1.Location = new System.Drawing.Point(394, 296);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -97,7 +99,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(226, 173);
+            this.button2.Location = new System.Drawing.Point(227, 267);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 5;
@@ -107,7 +109,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(226, 202);
+            this.button3.Location = new System.Drawing.Point(227, 296);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 6;
@@ -117,7 +119,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(312, 173);
+            this.button4.Location = new System.Drawing.Point(313, 267);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 7;
@@ -126,7 +128,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(312, 202);
+            this.button5.Location = new System.Drawing.Point(313, 296);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 8;
@@ -167,7 +169,7 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(393, 173);
+            this.button8.Location = new System.Drawing.Point(394, 267);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(38, 23);
             this.button8.TabIndex = 15;
@@ -176,7 +178,7 @@
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(430, 173);
+            this.button9.Location = new System.Drawing.Point(431, 267);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(38, 23);
             this.button9.TabIndex = 16;
@@ -189,7 +191,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(12, 190);
+            this.label5.Location = new System.Drawing.Point(13, 284);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(89, 20);
             this.label5.TabIndex = 17;
@@ -197,7 +199,7 @@
             // 
             // txtResultado
             // 
-            this.txtResultado.Location = new System.Drawing.Point(12, 231);
+            this.txtResultado.Location = new System.Drawing.Point(13, 325);
             this.txtResultado.Name = "txtResultado";
             this.txtResultado.Size = new System.Drawing.Size(583, 20);
             this.txtResultado.TabIndex = 18;
@@ -207,7 +209,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft New Tai Lue", 16.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(12, 113);
+            this.label6.Location = new System.Drawing.Point(12, 127);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(32, 29);
             this.label6.TabIndex = 19;
@@ -218,7 +220,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft New Tai Lue", 16.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(12, 138);
+            this.label7.Location = new System.Drawing.Point(13, 175);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(31, 29);
             this.label7.TabIndex = 20;
@@ -281,12 +283,22 @@
             this.button12.UseVisualStyleBackColor = true;
             this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
+            // pbPolA
+            // 
+            this.pbPolA.Location = new System.Drawing.Point(47, 119);
+            this.pbPolA.Name = "pbPolA";
+            this.pbPolA.Size = new System.Drawing.Size(489, 43);
+            this.pbPolA.TabIndex = 29;
+            this.pbPolA.TabStop = false;
+            this.pbPolA.Paint += new System.Windows.Forms.PaintEventHandler(this.pbPolA_Paint);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PapayaWhip;
-            this.ClientSize = new System.Drawing.Size(750, 288);
+            this.ClientSize = new System.Drawing.Size(750, 369);
+            this.Controls.Add(this.pbPolA);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.expB);
@@ -313,6 +325,7 @@
             this.Name = "Principal";
             this.Text = "Calculadora de Polinômios";
             this.Load += new System.EventHandler(this.Principal_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pbPolA)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -344,6 +357,7 @@
         private System.Windows.Forms.TextBox expB;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.PictureBox pbPolA;
     }
 }
 
