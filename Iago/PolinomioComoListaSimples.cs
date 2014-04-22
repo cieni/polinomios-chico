@@ -59,8 +59,8 @@ namespace Polinomio
                     noDele = noDele.prox;
                 }
                 noAtu = noAtu.prox;
+		noDele = p.lista.Primeiro;
             }
-
             return resultado;
         }
 
