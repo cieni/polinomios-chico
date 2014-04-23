@@ -107,7 +107,7 @@ namespace Polinomio
         public override Polinomio MultiplicarPorPolinomio(Polinomio p)
         {
             PolinomioComoListaSimples resultado = new PolinomioComoListaSimples();
-            ListaSimples<Termo>.NoLista noAtu = resultado.lista.Primeiro;
+            ListaSimples<Termo>.NoLista noAtu = this.lista.Primeiro;
             ListaSimples<Termo>.NoLista noDele = ((PolinomioComoListaSimples)p).lista.Primeiro;
 
             while (noAtu != null)
@@ -122,6 +122,7 @@ namespace Polinomio
                     noDele = noDele.prox;
                 }
                 noAtu = noAtu.prox;
+                noDele = ((PolinomioComoListaSimples)p).lista.Primeiro;
             }
 
             return resultado;
