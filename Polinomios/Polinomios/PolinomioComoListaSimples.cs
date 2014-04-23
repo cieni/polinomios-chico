@@ -15,7 +15,7 @@ namespace Polinomio
         {
             PolinomioComoListaSimples p = new PolinomioComoListaSimples();
             p.lista.IncluirAposUltimo(termo);
-            this.lista = ((PolinomioComoListaSimples) p.SomadoA(this)).lista;
+            this.lista = ((PolinomioComoListaSimples)p.SomadoA(this)).lista;
             /*
             if (lista.EstaVazia)
             {
@@ -137,21 +137,22 @@ namespace Polinomio
             String result = String.Empty;
             ListaSimples<Termo>.NoLista noAtu = lista.Primeiro;
 
-            if (noAtu == null)
-                result = "0";
-            else
-                while (noAtu != null)
-                {
-                    if (noAtu.dados.Coeficiente != 0)
-                        result = result + noAtu.dados.ToString();
-                    noAtu = noAtu.prox;
-                }
+            while (noAtu != null)
+            {
+                if (noAtu.dados.Coeficiente != 0)
+                    result = result + noAtu.dados;
+                noAtu = noAtu.prox;
+            }
 
             if (result.IndexOf("+") == 0)
                 result = result.Substring(1, result.Length - 1);
 
+            if (result.Equals(""))
+                result = "0";
+
             return result;
         }
+
     }
 
 }

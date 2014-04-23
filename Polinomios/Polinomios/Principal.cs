@@ -12,7 +12,8 @@ using System.Windows.Forms;
 namespace Polinomio
 {
     public partial class Principal : Form
-    { 
+    {
+
         private Polinomio polA, polB;
 
         public Principal()
@@ -25,8 +26,11 @@ namespace Polinomio
 
         private void atualizarTela()
         {
-            label6.Text = "A: " + polA.ToString();
-            label7.Text = "B: " + polB.ToString();
+            wbA.DocumentText = "<html><body style='padding: 0; margin: 0; font: 16.25pt \"Segoe UI Light\"'><sup style='color:#fff'>&nbsp;</sup>" + polA + "</body></html>";
+            wbB.DocumentText = "<html><body style='padding: 0; margin: 0; font: 16.25pt \"Segoe UI Light\"'><sup style='color:#fff'>&nbsp;</sup>" + polB + "</body></html>";
+            
+            //label6.Text = "A:" + polA.ToString();
+            //label7.Text = "B:" + polB.ToString();
         }
 
         private Polinomio lerTermoDeArquivo()
@@ -61,6 +65,7 @@ namespace Polinomio
 
         private void Principal_Load(object sender, EventArgs e)
         {
+
             ofdAbrir = new OpenFileDialog();
             ofdAbrir.Filter = "Arquivos de texto (*.txt)|*.txt";       // só poderá abrir arquivo de extensão txt
             ofdAbrir.RestoreDirectory = true;
@@ -81,10 +86,10 @@ namespace Polinomio
 
         private void verificaNumero(object sender, KeyPressEventArgs e)
         {
-                if (!Char.IsDigit(e.KeyChar) && (e.KeyChar != (char)8) && (e.KeyChar != (char)45))
-                {
-                    e.Handled = true;
-                }
+            if (!Char.IsDigit(e.KeyChar) && (e.KeyChar != (char)8) && (e.KeyChar != (char)45))
+            {
+                e.Handled = true;
+            }
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -175,6 +180,11 @@ namespace Polinomio
             Polinomio p = polB.SomadoA(new PolinomioComoListaSimples());
             p.Diferenciar();
             txtResultado.Text = p + "";
+        }
+
+        private void txtResultado_TextChanged(object sender, EventArgs e)
+        {
+            wbResultado.DocumentText = "<html><body style='padding: 0; margin: 0; font: 16.25pt \"Segoe UI Light\"'><sup style='color:#fff'>&nbsp;</sup>" + txtResultado.Text + "</body></html>";
         }
 
     }

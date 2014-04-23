@@ -98,17 +98,17 @@ namespace Polinomio
             if (Math.Abs(coeficiente) == 1)
                 if (coeficiente > 0)
                 {
-                    return "+x^" + expoente;
+                    return "+x<sup>" + expoente + "</sup>";
                 }
                 else
                 {
-                    return "-x^" + expoente;
+                    return "-x<sup>" + expoente + "</sup>";
                 }
 
             if (coeficiente > 0)
-                return "+" + coeficiente + "x^" + expoente;
-            
-            return coeficiente + "x^" + expoente;
+                return "+" + coeficiente + "x<sup>" + expoente + "</sup>";
+
+            return coeficiente + "x<sup>" + expoente + "</sup>";
         }
 
         public object Clone()
