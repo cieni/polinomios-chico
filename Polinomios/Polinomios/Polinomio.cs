@@ -8,6 +8,11 @@ namespace Polinomio
         public abstract void Diferenciar();// percorrerá os termos e os diferenciará
         public abstract Polinomio MultiplicarPorConstante(double constante);// percorrerá os termos e os diferenciará
         public abstract Polinomio SomadoA(Polinomio p); // devolve novo polinômio (this+p)
+        public abstract Polinomio MultiplicarPorPolinomio(Polinomio p); // devolve novo polinômio (this*p)
+        public static Polinomio operator *(Polinomio p1, Polinomio p2)
+        {
+            return p1.MultiplicarPorPolinomio(p2);
+        }
         public static Polinomio operator +(Polinomio p1, Polinomio p2)
         {
             return p1.SomadoA(p2);

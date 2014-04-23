@@ -104,14 +104,39 @@ namespace Polinomio
             return ret;
         }
 
+        public override Polinomio MultiplicarPorPolinomio(Polinomio p)
+        {
+            PolinomioComoListaSimples resultado = new PolinomioComoListaSimples();
+            ListaSimples<Termo>.NoLista noAtu = resultado.lista.Primeiro;
+            ListaSimples<Termo>.NoLista noDele = ((PolinomioComoListaSimples)p).lista.Primeiro;
+
+            while (noAtu != null)
+            {
+                while (noDele != null)
+                {
+                    int exp;
+                    double coef;
+                    coef = noAtu.dados.Coeficiente * noDele.dados.Coeficiente;
+                    exp = noAtu.dados.Expoente + noDele.dados.Expoente;
+                    resultado.Incluir(new Termo(coef, exp));
+                    noDele = noDele.prox;
+                }
+                noAtu = noAtu.prox;
+            }
+
+            return resultado;
+        }
+
         public override string ToString()
         {
             String result = String.Empty;
             ListaSimples<Termo>.NoLista noAtu = lista.Primeiro;
             while (noAtu != null)
             {
-                result = result + noAtu.dados.ToString();
-                noAtu = noAtu.prox;
+                if (noAtu.dados.Coeficiente != 0)
+                    result = result + noAtu.dados.ToString();
+                    noAtu = noAtu.prox;
+                
             }
 
             return result;

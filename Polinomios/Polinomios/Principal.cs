@@ -23,35 +23,10 @@ namespace Polinomio
             polB = new PolinomioComoListaSimples();
         }
 
-        private void desenhaPolinomio(Graphics g, PolinomioComoListaSimples pol)
+        private void atualizarTela()
         {
-
-            bool ehExpoente = false;
-            String polS = pol.ToString();
-            polS.Trim();
-            int ini = 0;
-            int uP = 0;
-            //Desenhar termo a termo da String
-            while (ini < polS.Length)
-            {
-                // Leu '^' é tudo expoente até um '+' ou '-'
-                if (!ehExpoente)
-                  ehExpoente = polS[ini] == '^';
-                if (polS[ini] == '+' || polS[ini] == '-')
-                {
-                    uP = ini;
-                }
-
-                if (!ehExpoente)
-                    g.DrawString(polS[ini] + "", new Font("Arial", 18), Brushes.Black, 12 * ini , 0F);
-                else
-                {
-                    SizeF size = g.MeasureString(polS.Substring(uP, ini).Replace("^",""), new Font("Arial", 18));
-                    g.DrawString(polS[ini] + "", new Font("Arial", 8), Brushes.Black, size.Width - 3F, 0F);
-                }
-
-                ini++;
-            }
+            label6.Text = "A: " + polA.ToString();
+            label7.Text = "B: " + polB.ToString();
         }
 
         private Polinomio lerTermoDeArquivo()
@@ -94,21 +69,21 @@ namespace Polinomio
         private void button11_Click(object sender, EventArgs e) //ler de arquivo
         {
             polA = lerTermoDeArquivo();
-            label6.Text = "A: " + polA;
+            atualizarTela();
         }
 
         private void button12_Click(object sender, EventArgs e)
         {
             polB = lerTermoDeArquivo();
-            label7.Text = "B: " + polB;
+            atualizarTela();
         }
 
         private void verificaNumero(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar) && (e.KeyChar != (char)8) && (e.KeyChar != (char)45))
-            {
-                e.Handled = true;
-            }
+                if (!Char.IsDigit(e.KeyChar) && (e.KeyChar != (char)8) && (e.KeyChar != (char)45))
+                {
+                    e.Handled = true;
+                }
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -117,23 +92,23 @@ namespace Polinomio
             Termo termo = new Termo(Convert.ToDouble(coefA.Text), Convert.ToInt32(expA.Text));
             polA.Incluir(termo);
             //Atualiza visualmente (tela) o polinômio
-            pbPolA.Refresh();
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            //Inclui novo termo no polinômio B
-            Termo termo = new Termo(Convert.ToDouble(coefB.Text), Convert.ToInt32(expB.Text));
-            polB.Incluir(termo);
-            //Atualiza visualmente (tela) o polinômio
-            pbPolA.Refresh();
+            atualizarTela();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            foreach (Control ctrl in this.Controls)
-                if (ctrl is TextBox)
-                    ctrl.Text = "";
+            DialogResult result = MessageBox.Show("Deseja limpar todos os campos e os polinômios?", "Limpar", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if (result.Equals(DialogResult.OK))
+            {
+                foreach (Control ctrl in this.Controls)
+                    if (ctrl is TextBox)
+                        ctrl.Text = "";
+
+                polA = new PolinomioComoListaSimples();
+                polB = new PolinomioComoListaSimples();
+                atualizarTela();
+            }
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -141,14 +116,40 @@ namespace Polinomio
             txtResultado.Text = polA.SomadoA(polB) + "";
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnMultiplicar_Click(object sender, EventArgs e)
+        {
+            txtResultado.Text = polA.MultiplicarPorPolinomio(polB) + "";
+        }
+
+        private void btnSubtrairAB_Click(object sender, EventArgs e)
         {
             txtResultado.Text = polA.SomadoA(polB.MultiplicarPorConstante(-1)) + "";
         }
 
-        private void pbPolA_Paint(object sender, PaintEventArgs e)
+        private void btnSubtrairBA_Click(object sender, EventArgs e)
         {
-            desenhaPolinomio(e.Graphics, polA as PolinomioComoListaSimples);
+            txtResultado.Text = polB.SomadoA(polA.MultiplicarPorConstante(-1)) + "";
+        }
+
+        private void btnIncluirB_Click(object sender, EventArgs e)
+        {
+            //Inclui novo termo no polinômio B
+            Termo termo = new Termo(Convert.ToDouble(coefB.Text), Convert.ToInt32(expB.Text));
+            polB.Incluir(termo);
+            //Atualiza visualmente (tela) o polinômio
+            atualizarTela();
+        }
+
+        private void btnDiferenciarA_Click(object sender, EventArgs e)
+        {
+            polA.Diferenciar();
+            atualizarTela();
+        }
+
+        private void btnDiferenciarB_Click(object sender, EventArgs e)
+        {
+            polB.Diferenciar();
+            atualizarTela();
         }
 
     }
