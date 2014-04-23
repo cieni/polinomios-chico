@@ -67,7 +67,7 @@ namespace Polinomio
         }
 
         public override string ToString()
-        {
+        { 
             if (coeficiente > 0)
                 return "+" + coeficiente + "x^" + expoente + "";
             else

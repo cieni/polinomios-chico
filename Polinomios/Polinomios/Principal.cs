@@ -89,6 +89,13 @@ namespace Polinomio
         private void button6_Click(object sender, EventArgs e)
         {
             //Inclui novo termo no polinômio A
+            if (Convert.ToInt32(expA.Text) < 0)
+            {
+                MessageBox.Show("O expoentes deve ser maior que 0");
+                expA.Focus();
+                return;
+            }
+
             Termo termo = new Termo(Convert.ToDouble(coefA.Text), Convert.ToInt32(expA.Text));
             polA.Incluir(termo);
             //Atualiza visualmente (tela) o polinômio
@@ -133,6 +140,12 @@ namespace Polinomio
 
         private void btnIncluirB_Click(object sender, EventArgs e)
         {
+            if (Convert.ToInt32(expB.Text) < 0)
+            {
+                MessageBox.Show("O expoente deve ser maior que 0");
+                expB.Focus();
+                return;
+            }
             //Inclui novo termo no polinômio B
             Termo termo = new Termo(Convert.ToDouble(coefB.Text), Convert.ToInt32(expB.Text));
             polB.Incluir(termo);
