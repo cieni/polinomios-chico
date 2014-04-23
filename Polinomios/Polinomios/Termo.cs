@@ -67,11 +67,29 @@ namespace Polinomio
         }
 
         public override string ToString()
-        { 
+        {
+            if (coeficiente == 0)
+                return "0";
+
+            if (expoente == 0)
+            {
+                if (coeficiente > 0)
+                    return "+" + coeficiente;
+
+                return coeficiente + "";
+            }
+            else if (expoente == 1)
+            {
+                if (coeficiente > 0)
+                    return "+" + coeficiente + "x";
+
+                return coeficiente + "x";
+            }
+
             if (coeficiente > 0)
                 return "+" + coeficiente + "x^" + expoente + "";
-            else
-                return coeficiente + "x^" + expoente;
+            
+            return coeficiente + "x^" + expoente;
         }
 
         public object Clone()

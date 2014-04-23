@@ -28,7 +28,7 @@ namespace Polinomio
                 {
                     noAtu.InsereAntes(termo); // como é em ordem decrescente, deverá ser incluído antes do 1º termo menor que ele
                     acabou = true;
-                } 
+                }
                 noAtu = noAtu.prox;
             }
             if (!acabou)
@@ -63,19 +63,19 @@ namespace Polinomio
             {
                 Termo t = new Termo(0, 0);
 
-                if (noX == null || noThis.dados.Expoente > noX.dados.Expoente)
+                if (noX == null || (noThis != null && noThis.dados.Expoente > noX.dados.Expoente))
                 {
                     t.Coeficiente = noThis.dados.Coeficiente;
                     t.Expoente = noThis.dados.Expoente;
-                    
+
                     nLista.IncluirAposUltimo(t);
                     noThis = noThis.prox;
                 }
-                else if (noThis == null || noX.dados.Expoente > noThis.dados.Expoente) 
+                else if (noThis == null || (noX != null && noX.dados.Expoente > noThis.dados.Expoente))
                 {
                     t.Coeficiente = noX.dados.Coeficiente;
                     t.Expoente = noX.dados.Expoente;
-                    
+
                     nLista.IncluirAposUltimo(t);
                     noX = noX.prox;
                 }
@@ -131,13 +131,16 @@ namespace Polinomio
         {
             String result = String.Empty;
             ListaSimples<Termo>.NoLista noAtu = lista.Primeiro;
-            while (noAtu != null)
-            {
-                if (noAtu.dados.Coeficiente != 0)
-                    result = result + noAtu.dados.ToString();
+
+            if (noAtu == null)
+                result = "0";
+            else
+                while (noAtu != null)
+                {
+                    if (noAtu.dados.Coeficiente != 0)
+                        result = result + noAtu.dados.ToString();
                     noAtu = noAtu.prox;
-                
-            }
+                }
 
             return result;
         }

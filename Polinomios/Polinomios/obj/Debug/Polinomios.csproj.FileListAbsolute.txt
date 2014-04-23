@@ -25,3 +25,12 @@ C:\Users\Lucas Liza\Documents\GitHub\polinomios-chico\Polinomios\Polinomios\obj\
 C:\Users\Lucas Liza\Documents\GitHub\polinomios-chico\Polinomios\Polinomios\obj\Debug\Polinomio.Principal.resources
 C:\Users\Lucas Liza\Documents\GitHub\polinomios-chico\Polinomios\Polinomios\obj\Debug\Polinomios.Properties.Resources.resources
 C:\Users\Lucas Liza\Documents\GitHub\polinomios-chico\Polinomios\Polinomios\obj\Debug\Polinomios.csproj.GenerateResource.Cache
+C:\Users\u12177\Documents\GitHub\polinomios-chico\Polinomios\Polinomios\bin\Debug\Polinomios.exe.config
+C:\Users\u12177\Documents\GitHub\polinomios-chico\Polinomios\Polinomios\obj\Debug\Polinomios.exe
+C:\Users\u12177\Documents\GitHub\polinomios-chico\Polinomios\Polinomios\obj\Debug\Polinomios.pdb
+C:\Users\u12177\Documents\GitHub\polinomios-chico\Polinomios\Polinomios\bin\Debug\Polinomios.exe
+C:\Users\u12177\Documents\GitHub\polinomios-chico\Polinomios\Polinomios\bin\Debug\Polinomios.pdb
+C:\Users\u12177\Documents\GitHub\polinomios-chico\Polinomios\Polinomios\obj\Debug\Polinomios.csprojResolveAssemblyReference.cache
+C:\Users\u12177\Documents\GitHub\polinomios-chico\Polinomios\Polinomios\obj\Debug\Polinomio.Principal.resources
+C:\Users\u12177\Documents\GitHub\polinomios-chico\Polinomios\Polinomios\obj\Debug\Polinomios.Properties.Resources.resources
+C:\Users\u12177\Documents\GitHub\polinomios-chico\Polinomios\Polinomios\obj\Debug\Polinomios.csproj.GenerateResource.Cache
