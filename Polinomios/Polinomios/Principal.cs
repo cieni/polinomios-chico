@@ -63,7 +63,8 @@ namespace Polinomio
         {
             ofdAbrir = new OpenFileDialog();
             ofdAbrir.Filter = "Arquivos de texto (*.txt)|*.txt";       // só poderá abrir arquivo de extensão txt
-            ofdAbrir.RestoreDirectory = true;     
+            ofdAbrir.RestoreDirectory = true;
+            atualizarTela();
         }
 
         private void button11_Click(object sender, EventArgs e) //ler de arquivo
@@ -88,10 +89,15 @@ namespace Polinomio
 
         private void button6_Click(object sender, EventArgs e)
         {
+            if (expA.Text.Trim().Equals(""))
+                expA.Text = "0";
+            if (coefA.Text.Trim().Equals(""))
+                coefA.Text = "0";
+
             //Inclui novo termo no polinômio A
             if (Convert.ToInt32(expA.Text) < 0)
             {
-                MessageBox.Show("O expoentes deve ser maior que 0");
+                MessageBox.Show("O expoente deve ser maior que 0");
                 expA.Focus();
                 return;
             }
@@ -140,6 +146,10 @@ namespace Polinomio
 
         private void btnIncluirB_Click(object sender, EventArgs e)
         {
+            if (expB.Text.Trim().Equals(""))
+                expB.Text = "0";
+            if (coefB.Text.Trim().Equals(""))
+                coefB.Text = "0";
             if (Convert.ToInt32(expB.Text) < 0)
             {
                 MessageBox.Show("O expoente deve ser maior que 0");
@@ -155,14 +165,16 @@ namespace Polinomio
 
         private void btnDiferenciarA_Click(object sender, EventArgs e)
         {
-            polA.Diferenciar();
-            atualizarTela();
+            Polinomio p = polA.SomadoA(new PolinomioComoListaSimples());
+            p.Diferenciar();
+            txtResultado.Text = p + "";
         }
 
         private void btnDiferenciarB_Click(object sender, EventArgs e)
         {
-            polB.Diferenciar();
-            atualizarTela();
+            Polinomio p = polB.SomadoA(new PolinomioComoListaSimples());
+            p.Diferenciar();
+            txtResultado.Text = p + "";
         }
 
     }

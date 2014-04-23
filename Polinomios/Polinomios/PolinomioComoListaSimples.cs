@@ -13,6 +13,10 @@ namespace Polinomio
 
         public override void Incluir(Termo termo) // incluirá Termo na lista, em ordem decrescente de expoente
         {
+            PolinomioComoListaSimples p = new PolinomioComoListaSimples();
+            p.lista.IncluirAposUltimo(termo);
+            this.lista = ((PolinomioComoListaSimples) p.SomadoA(this)).lista;
+            /*
             if (lista.EstaVazia)
             {
                 lista.IncluirAntesDoPrimeiro(termo);
@@ -34,7 +38,7 @@ namespace Polinomio
             if (!acabou)
             {
                 lista.Ultimo.InsereDepois(termo);
-            }
+            }*/
 
         }
 
@@ -107,7 +111,7 @@ namespace Polinomio
         public override Polinomio MultiplicarPorPolinomio(Polinomio p)
         {
             PolinomioComoListaSimples resultado = new PolinomioComoListaSimples();
-            ListaSimples<Termo>.NoLista noAtu = resultado.lista.Primeiro;
+            ListaSimples<Termo>.NoLista noAtu = this.lista.Primeiro;
             ListaSimples<Termo>.NoLista noDele = ((PolinomioComoListaSimples)p).lista.Primeiro;
 
             while (noAtu != null)
@@ -122,6 +126,7 @@ namespace Polinomio
                     noDele = noDele.prox;
                 }
                 noAtu = noAtu.prox;
+                noDele = ((PolinomioComoListaSimples)p).lista.Primeiro;
             }
 
             return resultado;
@@ -141,6 +146,9 @@ namespace Polinomio
                         result = result + noAtu.dados.ToString();
                     noAtu = noAtu.prox;
                 }
+
+            if (result.IndexOf("+") == 0)
+                result = result.Substring(1, result.Length - 1);
 
             return result;
         }

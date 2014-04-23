@@ -80,14 +80,33 @@ namespace Polinomio
             }
             else if (expoente == 1)
             {
+                if (Math.Abs(coeficiente) == 1)
+                    if (coeficiente > 0)
+                    {
+                        return "+x";
+                    }
+                    else
+                    {
+                        return "-x";
+                    }
                 if (coeficiente > 0)
                     return "+" + coeficiente + "x";
 
                 return coeficiente + "x";
             }
 
+            if (Math.Abs(coeficiente) == 1)
+                if (coeficiente > 0)
+                {
+                    return "+x^" + expoente;
+                }
+                else
+                {
+                    return "-x^" + expoente;
+                }
+
             if (coeficiente > 0)
-                return "+" + coeficiente + "x^" + expoente + "";
+                return "+" + coeficiente + "x^" + expoente;
             
             return coeficiente + "x^" + expoente;
         }
