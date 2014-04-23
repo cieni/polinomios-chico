@@ -43,10 +43,10 @@ namespace Polinomio
                     string[] linha;
                     linha = sr.ReadToEnd().Split(' ');   //le palavra por palavra separadas por espaço
                     sr.Close();
-                    while (linha[indAtu] != null)
+                    while (indAtu < linha.Length)
                     {
                         coef = Convert.ToInt32(linha[indAtu]);
-                        if (linha[indAtu + 1] != null)
+                        if ((indAtu + 1) < linha.Length)
                             exp = Convert.ToInt32(linha[indAtu + 1]);
                         else
                             exp = 1;
